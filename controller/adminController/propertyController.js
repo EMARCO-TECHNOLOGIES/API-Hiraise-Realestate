@@ -31,6 +31,8 @@ export const addPhoto = async (req, res) => {
 
         }).catch((err) => {
             console.log(err)
+            res.json({ success: false, message: err.message })
+
         }).finally(() => {
             fs.unlinkSync(image.path);
 

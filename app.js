@@ -20,11 +20,12 @@ app.use(cors());
 app.use(json());
 app.use(urlencoded({ extended: false }));
 app.use(express.static(join(__dirname, 'public')));
+console.log(process.env.MONGO_CONNECTION_URL, '"""""')
 
 mongoose.connect(process.env.MONGO_CONNECTION_URL).then((res) => {
   console.log('mongoose connected successfully...')
 }).catch((err) => {
-  console.log('mongoose failed to connect..')
+  console.log('mongoose failed to connect..', err)
 })
 
 
